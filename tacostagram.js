@@ -14,8 +14,17 @@ function getPostsFromAPI() {
         // Log post data to browser console
         console.log(post);
 
-        // html for each post goes here
-        let html = ``;
+        let html = `
+          <div class="col-12 col-sm-6 col-lg-4 mb-4">
+            <div class="card h-100">
+              <img src="${post.image}" class="card-img-top" alt="Taco image">
+              <div class="card-body">
+                <p class="card-text">${post.body}</p>
+                <small class="text-muted">Posted: ${new Date(post.created_at).toLocaleDateString()}</small>
+              </div>
+            </div>
+          </div>
+        `;
 
         const postsDiv = document.querySelector('#posts');
         postsDiv.innerHTML += html
